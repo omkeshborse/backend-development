@@ -1,0 +1,107 @@
+BE --> JS  --> executes in two places 
+1 browser 
+2 node js 
+
+node.js : runtime environment for javascript to executes code inside computer
+nodejs build on v8 engine made by google .
+
+# Node.js is built on the V8 JavaScript engine, which is developed by Google and is also used in Google Chrome. V8 is known for its speed and efficiency in executing JavaScript code, making it a popular choice for powering server-side applications with Node.js. This combination allows developers to write server-side code using JavaScript, the same language used for client-side scripting in web browsers.
+
+note : nodejs --> runtime environment
+
+install of node js  
+website : nodejs.org  --> download --> LTS (Long-Term Support) version 
+
+to check nodejs install or not  : 
+1 open cmd and  type node --version 
+2 with nodejs npm(node package manager) is also come with node js 
+to check npm  npm  version  type -- > npm --version
+
+note : To open REPL inside cmd simply type -->  node and  press enter
+
+this REPL executes all javascript code.
+
+
+Introduction to JavaScript --> 
+    javascript is programming language
+    browser renders Frontend 
+    JavaScript mainly use to make website Dynamic 
+
+
+History of js : --> 
+1 1995 js born  
+2 js handed to ECMA in 1996
+3 mozilla join js in 2005 --> ECMA5
+4 94% use js  in 2016 
+
+
+features of js : 
+javascript is single threaded language 
+
+
+java is  multi-threaded programming language  
+ex : analogs to hotel ex : 
+hotel  with  multi-table and multiple worker  . 
+
+javascript is  like  : hotel with  multi-table and single waiter/worker -->
+because of javascript is single threaded programming language there is concept called as asynchronous programming which make it fast with  single thread 
+
+applications of javascript : 
+1 Frontend 
+2 Desktop  app using electron framework 
+3 Backend development 
+4 Game development
+5 Machine Learning 
+6 mobile app (react native )
+7 iot (internet of things)
+
+
+Learning of language analogs to life of person 
+
+born --> name(giving name to baby ) ---> make baby aware about family type(brother , sister etc ) --->  teach comparisons(who best) ---> conditionals (mark > 19 ) go to garden --->repetitive things/work ---> learn how to reuse things ---> real world interactions /relation ship  --->Learning form mistakes   
+
+
+js(install of nodejs  ) --->variables ---> data types --->operators (athematic , logical  ,assignment  , comparisons ,bitwise  ) --->   conditions (if/else) ---> loops --->functions  --> oops ---> exception handling 
+
+
+variable => place to store data 
+ex : mom places mixture-spices , grains , wheat in small 
+container with specific label mark on it . 
+label like  --> turmeric powder  ,sugar 
+
+code ---> variable.js 
+
+
+DataTypes ==> 
+1 primitive  2 non-primitive
+
+primitive : simple /immutable(not changeable )
+8 data type in primitive 
+
+
+non-primitive : complex/ mutable (changeable )
+object in non-primitive
+
+code in dataType.js
+
+
+
+operators in javascript : 
+
+4 + 5  == 7 
+
++ ===> operator 
+4 ,5 ==>operand 
+4+5 ===> 7 ==> operation   
+
+code in operation.js
+
+
+conditionals  ===> make decisions base on conditions 
+code in conditions.js'
+
+
+loops ==> 
+In JavaScript, loops are used to execute a block of code repeatedly until a specified condition is met
+
+code is in loops.js
