@@ -1,0 +1,93 @@
+functions -->( do anything to solve problem using logic)
+
+functions is block of code (logic) to solve a problem and reuse  
+and call from anywhere
+
+code of functions in functions.js
+
+
+in era of write small and do fast new concept of javascript 
+introduce i.e arrow function 
+
+
+code in  arrow_functions.js
+
+
+scope  -> variable,function ,objects  --> scope defines in what 
+context we are using variable , function ,objects
+
+In programming, scope refers to the context in which variables 
+are declared and accessed. It determines the visibility and 
+lifetime of variables and other identifiers within your code.
+
+
+like in real life  : 
+me at mom dad is son 
+me at teacher is behave as student 
+me at friend is behave frankly  
+me at GF is like babu-shona
+
+
+3 level of scope 
+    1. global scope 
+    2. function scope  // local scope
+    3. block scope  // local scope
+
+Global Scope: Variables declared outside of any function, 
+including variables declared using var (not let or const inside 
+block scope), are considered global variables. They are 
+accessible from anywhere in your code, including within functions.
+
+Local Scope: Variables declared within a function are considered 
+local variables. They are only accessible within the function in 
+which they are declared. Each function establishes its own scope.
+
+Variables declared with let or const are block-scoped, meaning 
+they are only accessible within the block (enclosed by {}) in 
+which they are declared.
+
+
+code in scope.js
+
+
+difference  between var let const 
+in var_let_const.js
+
+
+
+String dataType 
+
+String is sequence  of character
+code in String.js
+
+
+array in js
+array stored ordered collection of data  
+store based on index
+code in array.js 
+
+
+objects in js 
+in 2000 www /internat  ---> real life application ==> Big basket , flip kart  , amazon ,instagram ,whatsapp , tinder , shadi.com , doctor .com
+
+
+in real world problem entity are available like person(living) ,car (non-living)
+
+person --> property (name ,age ) 
+
+car --> property(name ,brand ,color) ==>attribute (break ,accelerate)
+
+to represent this real world entity in  programming  then object oriented programming 
+comes into pictures
+
+
+objects represent real world entity 
+objects has "state" and some kind of "behavior"
+as well as in real world "relationship" between entity 
+
+code in objects.js
+
+
+destructuring in js 
+
+code in js
