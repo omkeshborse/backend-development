@@ -1,0 +1,150 @@
+higher order functions
+
+
+first order functions (normal function): 
+
+parameter : primitive / object  
+return :  primitive /object
+
+a first-order function would take a parameter that could be either a primitive type or
+an object and return a result that could be either a primitive type or an object.
+
+
+higher_order_function : 
+
+parameter : primitive / object / function 
+return : primitive /object /function
+
+
+A higher-order function is a function that either takes one or more functions as 
+arguments or returns a function as its result. Given the signature you've provided, a 
+higher-order function would take a parameter that could be either a primitive type, an 
+object, or a function, and it could return a result that could be either a primitive 
+type, an object, or a function
+
+code in higher_order_function.js
+
+
+higher_order_function method for  array : 
+this method are use to generate  new array to do some process in array 
+
+
+forEach  map , filter , reduce etc 
+
+code in  forEach_map_filter_reduce.js
+
+
+synchronous and asynchronous process : 
+
+synchronous/blocking:   a synchronous or blocking process, where each step is 
+completed before moving on to the next
+
+ problem 1 --> it solve by step by step 
+        start--> s1 ->s1 ->s3 ->s4  -->end
+        
+
+    Start: The process begins.
+    Step 1 (S1): The first step is executed.
+    Step 2 (S2): The second step is executed after the first one is completed.
+    Step 3 (S3): The third step is executed after the second one is completed.
+    Step 4 (S4): The fourth step is executed after the third one is completed.
+    End: The process is complete.
+
+real world example : 
+rahul  has a girlfriend shimran  , rahul is true lover
+
+on shimran birthday rahul wants best cake then rahul goes to bakery-shop .
+and bakery shop owner tall rahul only 1 cake is remaining and for new cake it take 30 
+min ,so rahul don't want to take risk  , so he decided to stay in bakery-shop for next 
+30 min  [this waiting for 30 min rahul does not Do anything he get blocked] , after 
+cake is ready tacks cake and come back to girlfriend shimran 
+
+
+this  staggy  use by rahul to stay in bakery-shop is synchronous way .
+by default js is synchronous language
+
+
+1. **Rahul wants the best cake for Shimran's birthday**: This is the starting point of the process.
+
+2. **Rahul goes to the bakery shop**: He takes action to fulfill his goal.
+
+3. **Bakery shop owner informs Rahul that only one cake is remaining and it will take 30 minutes for a new one**: This is where the synchronous behavior comes into play. Rather than leaving and risking not getting the best cake, Rahul decides to stay at the bakery shop for the next 30 minutes.
+
+4. **Rahul waits at the bakery shop for 30 minutes**: During this time, Rahul is effectively blocked or synchronous, meaning he can't do anything else until the 30 minutes pass.
+
+5. **Cake is ready**: After 30 minutes, the cake is ready, and Rahul can proceed with his plan.
+
+6. **Rahul takes the cake and returns to Shimran**: He completes the process and achieves his goal of getting the best cake for Shimran's birthday.
+
+In programming, this synchronous behavior is similar to how certain operations or tasks can block the execution of subsequent code until they are completed. JavaScript, by default, is synchronous, meaning that code is executed line by line and each line must finish executing before the next one can begin. This can lead to blocking behavior, especially in scenarios like network requests or file operations where the code needs to wait for a response.
+
+
+
+asynchronous/ non-blocking : 
+problem --> step1 -->step2 --> step3 -->step3 
+
+check step1 is blocking code or not  if it is blocking(time consuming) , then it leave to run in background move to next step check it's or  time consuming(blocking) or not ,
+if it time consuming he leave to process in background ,check for next step if it's not
+time consuming then he do it , check previous step completed or not  ,
+
+
+
+It sounds like you're describing an asynchronous, non-blocking approach to executing tasks sequentially while ensuring that time-consuming steps don't block the progress of subsequent steps. Here's a breakdown of how this might be implemented:
+
+1. **Step 1**: Check if step 1 is blocking or time-consuming.
+   - If step 1 is blocking, initiate it to run in the background.
+   - Move to the next step.
+
+2. **Step 2**: Check if step 2 is blocking or time-consuming.
+   - If step 2 is blocking, initiate it to run in the background.
+   - Move to the next step if step 1 is completed.
+   - Otherwise, wait for step 1 to complete.
+
+3. **Step 3**: Check if step 3 is blocking or time-consuming.
+   - If step 3 is blocking, initiate it to run in the background.
+   - Move to the next step if step 2 is completed.
+   - Otherwise, wait for step 2 to complete.
+
+4. **Step 4**: Repeat the process for any subsequent steps.
+
+This approach allows each step to be initiated without waiting for the previous step to complete if it's time-consuming. Instead, it checks for completion periodically and moves to the next step when the previous one is done, regardless of whether it was executed synchronously or asynchronously.
+
+
+the concept of asynchronous, non-blocking execution is fundamental in JavaScript, especially in environments like web browsers and Node.js. JavaScript provides mechanisms for asynchronous programming, such as callbacks, Promises, and async/await syntax.
+
+In JavaScript, if you have a time-consuming task, such as fetching data from a server or reading a large file, you typically don't want to block the main execution thread. Instead, you can initiate these tasks asynchronously, allowing the main thread to continue executing other code while waiting for the asynchronous task to complete.
+
+
+
+
+real life example asynchronous programming : 
+
+rahul and shimran is friend , shimran birthday  and rahul go to bakery-shop needs 30 min to beak , so rahul think near to bakery-shop rita home , so rahul rita talk 30 min , Bakery-shop-man call after 30min , rahul get  cake goes to shimran make it surprises birthday , this 30min spend with rita is asynchronous way 
+
+
+That's a creative real-life example of asynchronous programming!
+
+In this scenario:
+
+- **Rahul** wants to buy a cake from the bakery shop for **Shimran's** birthday.
+- Knowing that it will take 30 minutes for the cake to be prepared, Rahul decides to use this time effectively.
+- He decides to visit his friend **Rita**, who lives nearby the bakery shop.
+- While waiting for the cake, Rahul spends 30 minutes talking to Rita.
+- After 30 minutes, the bakery shop calls Rahul to notify him that the cake is ready.
+- Rahul then picks up the cake and heads to Shimran's place to surprise him on his birthday.
+
+The key point here is that Rahul doesn't waste his time idly waiting for the cake to be ready. Instead, he uses this time to engage in another activity - talking to Rita. This mirrors the concept of asynchronous programming in JavaScript or any other programming language, where tasks that take time to complete (like fetching data from a server) don't block the entire program execution. Instead, the program can continue with other tasks while waiting for the time-consuming task to finish.
+
+
+code in synch.js and async.js
+
+
+closures : Closures allow inner functions to maintain access to variables in their 
+outer (enclosing) scope even after the outer function has finished executing.
+
+code in closures.js
+
+callback function : 
+
+A callback function is a function that is passed as an argument to another function and is invoked or executed inside that function.
+code in callback.js
