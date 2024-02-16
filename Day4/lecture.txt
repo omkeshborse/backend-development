@@ -1,0 +1,143 @@
+javascript : 
+interview best topic : 
+asynchronous programming using callback promise and async-await  
+1. promise :
+2. async-await  : 
+3. Error-handling : 
+
+
+promises : 
+promise is always future probability .so you promise to some one which is full-filled 
+or not-full-filled 
+
+                --> accepted ➘
+            ➚                  ⇓      
+promise --->                    completed
+            ➘                  ⇑
+               --> rejected  ➚
+
+
+                    ➚ resolve(+ve outcome) ➘
+promise object  =>                              settle(completed)
+                    ➘ reject (-ve outcome) ➚          
+(pending )          (action state)              (completed state)
+
+
+real world example  : 
+peter love Mary Jane ,Mary-jean promise peter i will marriage you . if promise 
+full-filled then Mary marriage peter if not then not-marriage with peter .  
+
+
+1. **Promise Creation**: Mary Jane makes a promise to Peter, saying, "I will marry you."
+   - This creates a promise (Mary's commitment) to fulfill a future action (marrying Peter).
+
+2. **Pending Promise**: Initially, the promise is in a pending state.
+   - Mary's promise is pending, awaiting the future action of marrying Peter.
+
+3. **Fulfillment**: If Mary fulfills her promise, the promise is resolved with a positive outcome.
+   - Mary marries Peter, and the promise is fulfilled.
+   - The promise transitions from pending to the completed state with a positive 
+   resolution.
+
+4. **Rejection**: If Mary doesn't fulfill her promise, the promise is rejected with a negative outcome.
+   - Mary decides not to marry Peter, breaking her promise.
+   - The promise transitions from pending to the completed state with a negative 
+   resolution.
+
+In this real-world analogy:
+
+- **Promise**: Mary's commitment to marry Peter, representing a future action.
+- **Resolution**: The outcome of Mary's promise—either fulfilled (marriage) or rejected (not marrying).
+- **Pending State**: Mary's promise before the decision to marry or not.
+- **Completed State**: The final state of the promise, indicating whether the 
+    commitment was honored or not.
+
+This analogy effectively illustrates the concept of promises in JavaScript, where a 
+promise represents a future outcome of an asynchronous operation, similar to a 
+commitment made in a real-world scenario.
+
+code in promises.js
+
+
+Promise ---> complicated ===> chaing and callback
+people form java and c++ ==> always have problem in understading .
+this promise like concept is not avaliable in c++/java because it's multithreaded 
+programming language .
+but javascript is single-threaded programming language that's why need of Promise 
+
+to make  asynchronous programming easy and writing code in fancy way javascript 
+brougt concept called as async-await .
+
+async-await : it will use for asynchronous proccessing 
+
+code in  async_await.js
+
+
+Error-handling in javascript : 
+when you code there is always chance it will failure of code , to accept this and 
+handle it gracefully  ,
+in every programming language there is way to handle exceptions
+
+
+error : error is event that happens can't recover
+ex : 1. out-of-memory 
+     2. hard-disk Corruption 
+     3. power off /electricity cutoff 
+     this kind of situation happens in exceptions of application is error
+exceptions : exceptions are those which handle programmitaclly 
+
+
+You're mostly right about the differences between errors and exceptions. Here's a 
+breakdown with some clarifications:
+
+**Errors:**
+
+* **Definition:** Events that occur **outside the normal control of the program** and 
+are generally **unrecoverable**. These usually stem from external factors like system 
+resource limitations or environmental issues.
+* **Examples:**
+    * Out-of-memory errors
+    * Disk corruption
+    * Power outages
+    * Network connection issues
+    * Hardware failures
+* **Recovery:** Programs generally cannot recover from errors on their own. They often 
+result in program termination or unexpected behavior.
+
+**Exceptions:**
+
+* **Definition:** Events that occur during program execution that **disrupt the normal 
+flow** but are **potentially recoverable**. These are typically caused by issues 
+within the program's logic or input data.
+* **Examples:**
+    * Division by zero
+    * Null pointer access
+    * File not found
+    * Invalid input data
+    * Network timeouts
+* **Recovery:** Programs can be designed to handle exceptions gracefully using 
+mechanisms like try-catch blocks. This allows them to continue execution in a 
+controlled manner or provide informative error messages to users.
+
+**Key Differences:**
+
+* **Source:** Errors are external while exceptions are internal.
+* **Recoverability:** Errors are generally unrecoverable, while exceptions can be 
+handled.
+* **Predictability:** Errors are often unpredictable, while exceptions can be 
+anticipated and handled within the code.
+
+**Your Examples:**
+
+While your examples of out-of-memory, disk corruption, and power outages are indeed 
+errors, not all situations in those categories fall under errors. For instance, a 
+program could handle low memory situations by freeing up resources or gracefully 
+shutting down. Similarly, programs can sometimes recover from disk corruption using 
+data redundancy or repair mechanisms.
+
+Overall, understanding the distinction between errors and exceptions is crucial for 
+writing robust and resilient programs. By anticipating and handling exceptions 
+effectively, you can improve the user experience and prevent your application from 
+crashing unexpectedly.
+
+
