@@ -1,0 +1,180 @@
+npm --> node package manager.
+
+real world : 
+to make tea ,  i need tea-powder,sugar,milk ==> form market ==> 5min ==>tea is ready
+
+to make all tea-powder , sugar , milk from the scratch need cow for milk , 
+sugarcane for sugar making , tea-leaf for tea it takes lot of time to complete . 
+so we don't make from scratch . 
+
+In same way the code that already make use and on Top of that we build application
+this already written code is called as library/modules. 
+
+node.js for all dependencies ,ensure  project in proper structured , to maintain 
+additional meta data  form all things by default npm is available
+
+next code in node_project -->code for modules ==>  myModule.js
+
+
+Node.js provides the foundation for managing dependencies and maintaining project 
+structure efficiently. With npm, the default package manager for Node.js, developers 
+can easily install, update, and remove dependencies while ensuring their projects 
+remain properly structured. Additionally, npm automatically handles the maintenance of 
+additional metadata, streamlining the development process and allowing developers to 
+focus on building robust applications.
+
+
+<--
+**Real-world tea making:**
+
+* **Ingredients:** Tea powder, sugar, and milk.
+* **Effort to acquire:** 5 minutes at the market.
+* **Benefit:** Enjoy a delicious cup of tea quickly and easily.
+
+**Software development with npm:**
+
+* **Ingredients:** Reusable code modules/libraries.
+* **Effort to acquire:** Install from the npm registry (like buying at the market).
+* **Benefit:** Build complex applications efficiently without starting from scratch.
+
+**Expanding on your analogy:**
+
+* Just like you wouldn't grow your own tea leaves, sugarcane, and raise a cow for a 
+single cup of tea, programmers rarely write every line of code themselves. npm 
+provides access to a vast collection of pre-written, well-tested, and maintained code 
+modules that can be easily integrated into your projects.
+* npm not only saves time and effort but also ensures consistency and quality. Instead 
+of reinventing the wheel, you can leverage the expertise of others and focus on the 
+unique aspects of your application.
+* Node.js, like your kitchen, provides the environment and tools (npm) to make working 
+with these modules efficient and organized. It ensures proper project structure, 
+manages dependencies, and tracks metadata, so you can focus on creating great software.
+
+In summary, using npm in software development is like being a smart cook who knows how 
+to leverage the best ingredients available to create delicious dishes efficiently and 
+consistently. 
+
+
+--->
+
+
+
+npm  ==> by default install ==> to check  version for node & npm ==> node --version 
+and npm --version
+
+Use of npm : 
+1. create node.js project 
+    a. create folder and type following command 
+        npm init 
+        and answer the some questions .
+package name: (workspace) YourPackageName
+version: (1.0.0) YourVersionNumber
+description: YourPackageDescription
+entry point: (index.js) YourEntryPoint (usually index.js)
+test command: YourTestCommand (if you have any, like "npm test")
+git repository: (https://github.com/omkesh) YourGitRepositoryURL
+keywords: YourKeywords (if any, separated by commas)
+author: YourName
+license: (ISC) YourLicenseType (e.g., MIT, Apache-2.0) 
+
+    b .this above command create package.json 
+    package.json contain all information/meta-data about project 
+    c. as we add dependencies package.json gets updated
+code in node_project folder
+
+2.get the dependencies/external modules
+    a. find node modules name and use following command 
+    b. npm install  node_module_name 
+        ex. npm install express
+    c. it also update package.json and create package-lock.json also node_module 
+    folder created in project folder which include express modules which also depends 
+    on other modules on which express depends. 
+
+modules : modules are single or multiple javascript files ,that contains logic to solve
+problem , it should be re-used from anywhere in the program .
+
+modules are Reusable and called from anywhere in the project
+
+3-type of modules : 
+1. custom modules : 
+   -Custom modules are modules created by developers for specific functionalities 
+   within their Node.js applications.
+   - These modules contain code that is unique to the application and tailored to its 
+   requirements.
+   - Custom modules are typically stored in separate files within the project 
+   directory and exported using the `module.exports` or `exports` object to make their 
+   functionalities available for use in other parts of the application.
+
+
+
+2. Built-in Modules  (fs /os /http): 
+   - Built-in modules, also known as core modules, are modules that come pre-installed 
+   with Node.js.
+   - These modules provide essential functionalities for common tasks such as file 
+   system operations, network communication, and operating system interaction.
+   - Examples of built-in modules include `fs` (file system), `os` (operating system), 
+   `http` (HTTP server/client), `path` (file path utilities), `util` (utility 
+   functions), and many others.
+   - Built-in modules are accessible directly within Node.js applications without the 
+   need for additional installation.
+3.external modules(express) : 
+   - External modules, also referred to as third-party or npm modules, are modules 
+   developed by third-party developers and made available through the Node Package 
+   Manager (npm).
+   - These modules offer a wide range of functionalities beyond what is provided by 
+   the built-in modules.
+   - External modules cover various domains such as web frameworks, database 
+   connectors, utility libraries, and more.
+   - Developers can easily incorporate external modules into their projects by 
+   installing them using npm, and then requiring/importing them into their code as 
+   needed.
+   - Examples of popular external modules include Express.js (web framework), Mongoose 
+   (MongoDB ODM), Lodash (utility library),   and many others.
+
+
+
+their are 100++  build-in module preset in node.js 
+
+link of all module : https://nodejs.org/api/modules.html 
+ex : fs  / os /http 
+
+built-in fs modules code in readWrite.js
+
+
+http module : use for create server  
+
+
+project ---> index.js ==(to run)==> node index.js 
+
+this application need to expose word wild and million of people use it !
+
+
+app -- hosted/wrap in server --> server is never stopping process/computer .
+    request and response handle by server 
+
+
+on computer different process are running .
+    ex : chrome ,python  , javascript ,java 
+every process is running on specific port number .
+    ex : port 8080 ,
+    chrome port : 80 
+
+
+to access this process need computer ip address , port number and app-name 
+     ip-address/8080/app_name ===> URL
+
+client will able to request data form server ,server send data (response)
+
+                        request
+            🖥️(client)    ⇄      🖥️(server)
+                        response 
+
+                    client-server model (request-response cycle)
+
+code of http-module is in server.js
+
+
+TO use external module : use 
+npm install module_name 
+and refer doc 
+code in using_express.js 
