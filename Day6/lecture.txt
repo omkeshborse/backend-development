@@ -1,0 +1,551 @@
+concept  : 
+
+what ? 
+
+why  ? 
+
+
+what is mongoDB : Database management system
+    1. allows to store data
+    2. management system  which allows 
+        a. To run Query and Secure data 
+
+mongoDB  == comes form mongo =means ===> Big || Humongous amount of data  ? 
+
+why to learn mongoDB DBMS over R-D-M-S(relational database management system) & db like SQL ,oracle   ? 
+ 
+R D M S ==> mySQL , oracle ==> store in tables . 
+            R D M S limitation 
+            1. fixed schema due to store in tables
+            In relational database management systems (RDBMS) such as MySQL and 
+            Oracle, data is typically organized into tables with fixed schemas. This 
+            means that each table has a predetermined structure, including a set 
+            number of columns with specific data types. However, this fixed schema can 
+            become a limitation when dealing with entities that have varying 
+            attributes or properties.
+
+ 
+            ex: 
+            flipkart  : For instance, consider an e-commerce platform like Flipkart, 
+            where different types of products may have vastly different sets of 
+            attributes. For example:
+            a.electronic products:4 attributes ==>Electronic products may have  
+                    attributes like name, brand, price, and specifications.
+            b.houseHold products :6 attributes ==>Household products may have   
+                    attributes such as name, brand, price, type, size, and color.
+            c.cosmetics products 5 attributes ==>Cosmetics products may have 
+                    attributes like name, brand, price, type, and ingredients.
+            all above products has different schema property it is not possible to 
+            store different number attributes in RDBMS.
+
+            In a traditional RDBMS, accommodating these varying attributes within a fixed schema can be challenging or even impossible. Each product type would require its own table with its own set of columns, leading to a cumbersome and inflexible database structure.
+            
+            To address this limitation, NoSQL databases like MongoDB offer a more 
+            flexible approach to schema design. In MongoDB, each collection can have 
+            its own schema, and documents within the same collection can have 
+            different structures. This flexibility allows for the storage of diverse 
+            entities with varying attributes without the constraints imposed by a 
+            fixed schema.
+            *** need flexible schema *** 
+            2.data driven decision 
+
+                | ---------------------------- |
+              2000        X amount of data   2022           
+                        90% of this data generated in last few years 
+            data ---> storage , computation on huge amount of data ==>RDBMS ==> performance issue 
+
+            mongoDB is very efficient storing Huge amount data ,so it is natively scalable , with flexible schema 
+
+            Certainly, here's a revised version:
+
+            "In the realm of data-driven decision-making, the period from 2000 to 2022 
+            witnessed an exponential increase in data volume. Remarkably, around 90% 
+            of this staggering amount of data materialized in just the last few years. 
+            However, managing and analyzing such vast datasets poses a significant 
+            challenge, particularly when relying on traditional relational database 
+            management systems (RDBMS).
+
+            The rigid schemas and structured data models of RDBMS often struggle to 
+            cope with the storage and computational demands imposed by massive 
+            datasets, leading to performance issues. In contrast, MongoDB stands out 
+            as a highly efficient solution for storing substantial volumes of data. 
+            Its native scalability and flexible schema make it adept at handling the 
+            complexities of modern data environments. 
+
+            As organizations seek to leverage data for strategic decision-making, 
+            MongoDB's capabilities offer a compelling alternative, enabling seamless 
+            storage, retrieval, and analysis of large and dynamically evolving 
+            datasets."
+
+
+
+
+mySQL/oracle ==> RDBMS          
+        database ==> tables (matrix )           columns 
+                                                🟦 🟦 🟦
+                                   Row          🟦 🟦 🟦
+                                                🟦 🟦 🟦 <- Represent  entity/data
+                                data store in the form of row  
+
+MongoDB : is NoSQL Database DBMS            
+    database ==> collections                    fields 
+                                   documents  {
+
+                                                 }
+        ****above comparison is in image -->RDBMS_VS_MongoDB.png
+
+
+Collections in MongoDB are similar to tables in relational databases. They both represent a grouping of related data.
+
+Documents in MongoDB correspond to rows in relational databases. Each document contains the data for a single record.
+
+Fields in MongoDB are akin to columns in relational databases. They define the attributes or properties of a document.
+
+
+Documents in mongoDB : Json type structure which store in BSON
+documents are essentially JSON-like structures, but they are stored in a format 
+called BSON (Binary JSON), which extends JSON to include additional data types and to 
+provide additional capabilities for representing data.
+
+BSON is a binary serialization format used to store documents and make MongoDB 
+efficient in terms of storage and data exchange. It's a binary-encoded serialization 
+of JSON-like documents.
+
+
+Document : 
+
+{
+  "_id": "609b7154b1b88a001f4c994d",
+  "employeeId": "123456",
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "age": 35,
+  "isManager": true,
+  "department": {
+    "name": "Engineering",
+    "location": "San Francisco"
+  },
+  "projects": [
+    {
+      "name": "Project A",
+      "startDate": "2023-01-01",
+      "endDate": "2023-06-30"
+    },
+    {
+      "name": "Project B",
+      "startDate": "2023-07-01",
+      "endDate": "2024-01-01"
+    }
+  ]
+}
+
+
+The "_id" field in MongoDB serves as a unique identifier for each document
+In this document, the "_id" field is a key-value pair where the key is "_id" and the 
+value is a unique identifier represented as a hexadecimal string 
+("609b7154b1b88a001f4c994d"). This value uniquely identifies the document within its 
+collection.
+
+
+All other fields in the document are also represented as key-value pairs, where the 
+key is the field name ("employeeId", "firstName", etc.) and the value is the 
+corresponding data.
+
+collection in mongoDB : collection is place where use store documents .
+In MongoDB, a collection is a container for storing documents. It's analogous to a 
+table in a relational database. Each collection in MongoDB can store multiple 
+documents, and each document can have its own unique structure.
+
+Collections in MongoDB are schema-less, meaning that documents within the same 
+collection can have different fields and structures. This flexibility allows for 
+dynamic data modeling and makes MongoDB well-suited for handling diverse and evolving 
+data.
+
+Here's a summary of collections in MongoDB:
+
+Container for Documents: A collection is a logical grouping of documents within a 
+MongoDB database.
+Document Storage: Documents are stored within collections.
+Schema Flexibility: Collections do not enforce a fixed schema, allowing documents to 
+have varying structures.
+Querying and Indexing: Collections support querying and indexing operations, enabling 
+efficient data retrieval.
+Scalability: MongoDB can distribute collections across multiple servers (shards) for 
+horizontal scalability.
+Atomic Operations: MongoDB provides atomic operations at the document level within a 
+collection, ensuring data consistency.
+
+
+mongoDB server == multiple database ==> d1,d2,d3,d4 ==> 
+    d1== multiple collections ==> c1,c2,c3,c4
+    c1==multiple documents ==> d1 ,d2 ,d3 ,d4 .
+
+
+advantages of mongoDB : 
+1. Best of sql and NoSQL world 
+
+RDBMS                    NoSQL 
+1. schema               1.flexible schema 
+2. transactions         2. scalability 
+3. relationship        
+
+all this property provide by mongoDB 
+i. Flexible Schema: MongoDB provides a flexible schema, allowing documents within a collection to have varying structures. Unlike RDBMS, which enforces a fixed schema, MongoDB's dynamic schema accommodates evolving data models and simplifies schema migrations.
+ii.Scalability: MongoDB is horizontally scalable, meaning it can easily scale out across multiple servers (shards) to handle large volumes of data and high traffic loads. This scalability is a key feature of NoSQL databases and enables MongoDB to support growing applications with ease.
+iii.Transactions: MongoDB introduced multi-document transactions in version 4.0, allowing developers to perform atomic operations on multiple documents within a single transaction. This feature provides data consistency and ensures that operations either succeed or fail as a single unit, similar to the transaction support in RDBMS.
+iv.Relationships: While NoSQL databases are often associated with denormalized data models and lack of support for relationships, MongoDB supports various techniques for modeling relationships between documents, including embedding, referencing, and de-normalization. This flexibility allows developers to design data models that suit the needs of their applications, whether they require normalized or denormalized structures.
+v.High Performance: MongoDB offers high performance for read and write operations due to its efficient indexing, query optimization, and support for in-memory storage engines like WiredTiger. This performance is essential for handling real-time analytics, high-throughput applications, and other demanding use cases.
+vi.Rich Query Language: MongoDB provides a powerful query language with support for a wide range of operations, including CRUD (Create, Read, Update, Delete), aggregation, Geospatial queries, text search, and more. This richness in query capabilities enables developers to express complex data manipulations and retrieve data efficiently.
+
+
+2. open source : free to use 
+
+3. horizontally scalable : 
+scalability :             
+  🛢️(database ) 1000 records to gets this record 10 milliseconds require . 
+        ￬
+        ￬ 6 months 
+        ￬
+  🛢️(database ) 1million records to gets this record 2 min require .      
+
+above example of database not scalable  this type of problems mainly in mySQL database
+i.e data-load increase then query time increase  
+
+how to scale things up ? 
+
+       🛢️ capacity 500mb Database suppose it full 90% so i go in market by more 500mb of space add to previous db   🛢️  
+                                     🛢️ (1000 mb )
+
+ 🛢️500  --buy space ---->    🛢️500  --buy space ----> 🛢️500
+                             🛢️500                    🛢️500
+                                                      🛢️500 
+
+                    this above is called as vertical scaling .
+**vertical scaling problems 
+    1.single point of failures 
+    all data in single machine and it machine fails you loose all of your data   
+    When you rely on a single, highly scaled server, any failure in that server can result in downtime for your entire application. If the server experiences hardware failure, software crash, or any other issue, it can bring your entire system to a halt until the problem is resolved. This creates a single point of failure, which can lead to significant disruptions in service and loss of data.
+    
+    2.performance vs. cost 
+    after certain point of scaling perform is not improves with addition of cost . 
+
+     In the context of performance vs. cost in vertical scaling, it means that after a certain point of increasing resources (such as CPU, memory, or storage) on a single server, the performance improvements gained do not justify the additional cost.
+
+     to read more :https://g.co/gemini/share/3247d6820ed6 
+    to overcoming form this problem horizontal scaling 
+
+**horizontal scaling : use multiple machine for storing of data
+
+
+    💻 <---->💻<----> 💻<---->💻<---->💻
+    1.multiple machine to store 
+    2.all machine connected over network 
+    this also called as cluster of machine
+
+    if need more data to store then add machine , if data reduce then remove machine
+
+    1.Multiple Machines: Horizontal scaling utilizes multiple machines (represented by 
+    💻) to store and process data. Each machine in the cluster contributes to the 
+    overall capacity and performance of the system.
+
+    2.Network Connectivity: All machines in the cluster are connected over a network. 
+    This enables communication and data transfer between the machines, allowing them 
+    to work together as a unified system.
+
+    3.Cluster of Machines: The collection of machines working together forms a 
+    cluster. Each machine in the cluster shares the workload, improving fault 
+    tolerance, scalability, and performance.
+
+    4.Scalability: Horizontal scaling offers scalability by adding or removing 
+    machines from the cluster based on demand. If more data needs to be stored or 
+    processed, additional machines can be added to the cluster. Conversely, if the 
+    workload decreases, machines can be removed to optimize resource utilization.
+
+    Horizontal scaling provides several benefits:
+
+    Increased Performance: Distributing the workload across multiple machines allows for parallel processing, improving overall performance and throughput.
+
+    Improved Fault Tolerance: With data distributed across multiple machines, the system becomes more resilient to failures. If one machine fails, the remaining machines in the cluster can continue to operate, ensuring high availability.
+
+    Elasticity: Horizontal scaling enables dynamic resource allocation, allowing the system to adapt to changing workloads and demands
+
+4. Data replication : 
+    i store data in multiple machine if any machine data crash then due to multiple 
+        machine data due not loose when machine fails
+    
+    
+    Data replication, in essence, is the process of creating and maintaining one or more copies of your data across different systems or locations. It's like making backups, but with the key difference that the copies are continuously synchronized with the original source data. This means any changes made to the primary data are automatically reflected in its replicas.
+
+    *Multiple copies: It involves creating more than one copy of your data, unlike a simple backup which focuses on just one.
+
+    *Synchronization: The copies are not static backups, but rather stay up-to-date with the original data through an ongoing synchronization process.
+
+    *Different purposes: While often used for backups and disaster recovery, data replication can also serve various other purposes like improving performance, data availability, and geographical distribution.
+
+5.Reliable : due to data replication data never loose , then this make systems Reliable .
+     Reliability is a crucial aspect of any system, and data replication plays a significant role in ensuring reliability. 
+     Data Redundancy: By maintaining multiple copies of data across different systems or locations, data replication provides redundancy. This redundancy ensures that even if one copy of the data becomes unavailable due to hardware failure, network issues, or other problems, there are still other copies available to serve requests. This redundancy enhances system reliability by reducing the risk of data loss or unavailability.
+
+    Continuous Synchronization: Data replication ensures that all copies of the data remain continuously synchronized with the original source data. This means that any changes made to the primary data are automatically propagated to its replicas in real-time or near real-time. As a result, users and applications always have access to the most up-to-date information, which enhances the reliability of the system and prevents data inconsistencies or discrepancies.
+
+    Fault Tolerance: With synchronized replicas distributed across different systems or locations, data replication improves fault tolerance. In the event of hardware failures, network outages, or other disruptions, the system can continue to operate seamlessly by routing requests to available replicas. This fault tolerance ensures that the system remains operational and reliable even in adverse conditions.
+
+    Disaster Recovery: Data replication also serves as a form of disaster recovery. In the event of a catastrophic failure or disaster that affects the primary data source, organizations can rely on replicated copies of the data to quickly restore operations and minimize downtime. This ability to recover from disasters enhances the overall reliability of the system and provides peace of mind to stakeholders.
+
+
+6. flexible schema : 
+    In MongoDB, flexible schema refers to the ability to store documents with varying structures within the same collection. 
+
+
+ Use cases of MongoDB : 
+
+    industry : ===> need  structure/schema --> fixed / flexible 
+               ===> Huge amount data 
+               ===> performance
+    then use mongoDB .
+
+1. cms (content management system) : Blog ==> need flexible schema 
+2. product management ==> flipkart ==> huge amount data of product with flexible      
+                        schema 
+3. operational intelligence ==> 
+    data ==>insights (a clear, deep, and sometimes sudden understanding of a complicated problem or situation) ==>data driven decision  
+
+3. online application 
+
+
+*** sharding in mongoDB ***
+
+mongoDB ==> scale ==> horizontally scalable ===>  stored on multiple machines 
+    Sharding is a method for distributing data across multiple machines
+
+  ex : products ==> 1million documents => distributed ==> 
+
+                  m1 🛢️(3.3lack )| m2 🛢️(3.3lack )| m3 🛢️ (3.3lack ) 
+
+              in this way it is horizontally scalable 
+            challenges in horizontal scaling : 
+            1. any machine crashes so data get loss , need to backup in somewhere 
+                so to ensure that  data from any data base is never loss , 
+                every data need to make copy this is called data replication  
+              replicas mean : storing data more than on machine 
+
+                            🛢️ 🛢️ 🛢️
+                          replica sets
+
+        why mongoDB is highly scalable : 
+          1. sharding 
+          2.replica sets
+
+
+How MongoDB stores Data ? 
+
+data stored in form of documents ===> document is json like structured 
+json has limited data type supported
+and stored in from of BSON(Binary json ) 
+BSON advantages : 
+1. its binary  so takes less space
+2. faster traverser -->  improves query speed 
+3. large number of data type == see in image  mongoDB.png
+
+fact about document : 
+In MongoDB, there is a maximum size limit for documents, which is 16 megabytes (MB). 
+
+
+data modeling in mongoDB : 
+
+                data-modeling 
+                ⇊            ⇊
+            representing   relationship 
+            entities 
+            car , person   
+        represented as document
+    representing real-life entities like cars and person , relationships between entities 
+
+
+In MongoDB, data modeling involves designing the structure of your data to best suit the needs of your application. Let's explore how you might model entities like cars and persons, along with their relationships:
+
+### Modeling Entities:
+
+1. **Car Entity:**
+   - Each car can be represented as a document in a collection named "cars."
+   - Fields within each car document could include attributes such as make, model, 
+   year, color, VIN (Vehicle Identification Number), etc.
+
+```json
+{
+  "_id": ObjectId("..."),
+  "make": "Toyota",
+  "model": "Camry",
+  "year": 2022,
+  "color": "Silver",
+  "VIN": "1234567890"
+}
+```
+
+2. **Person Entity:**
+   - Similarly, each person can be represented as a document in a collection named 
+   "persons."
+   - Fields within each person document could include attributes such as name, age, 
+   gender, address, etc.
+
+```json
+{
+  "_id": ObjectId("..."),
+  "name": "John Doe",
+  "age": 30,
+  "gender": "Male",
+  "address": "123 Main St, City, Country"
+}
+```
+
+### Modeling Relationships:
+
+Now, let's consider relationships between cars and persons:
+
+1. **Ownership Relationship:**
+   - If a person owns one or more cars, you can represent this relationship by 
+   embedding car documents within the person document.
+
+```json
+{
+  "_id": ObjectId("..."),
+  "name": "John Doe",
+  "age": 30,
+  "gender": "Male",
+  "address": "123 Main St, City, Country",
+  "cars": [
+    ObjectId("car1_id"),
+    ObjectId("car2_id")
+  ]
+}
+```
+
+2. **Driving Relationship:**
+   - If a person drives multiple cars, you could model this as an array of references 
+   to car documents within the person document.
+
+```json
+{
+  "_id": ObjectId("..."),
+  "name": "John Doe",
+  "age": 30,
+  "gender": "Male",
+  "address": "123 Main St, City, Country",
+  "drivingCars": [
+    ObjectId("car1_id"),
+    ObjectId("car2_id")
+  ]
+}
+```
+
+3. **Relationships as Separate Collections:**
+   - Alternatively, you could represent relationships between cars and persons in 
+   separate collections, such as "ownership" or "driving," with documents containing 
+   references to both the person and the car.
+
+These are just a few examples of how you might model entities and relationships in 
+MongoDB. The optimal approach depends on the specific requirements and use cases of 
+your application.
+
+
+relational types : 
+1. 1 to 1 relationship : 
+  ex : 
+    entities: citizen  , aadhar  card 
+    1 citizen has 1 aadhar card 
+
+2. 1 to many relationships  OR many to 1 relational: 
+    entities :  Country ,  citizen 
+    one country have many citizen .
+
+3. many to many relationship : 
+  entities  : student teacher 
+   one student learn form may teachers and one teacher teach many students 
+
+
+
+how to make  relationship in mongoDB : 
+1. embedded data :   
+    Document nested inside document .
+    user --->contact , 
+    in below example : to make relationship between user and its contact ,
+    embed contact inside user document 
+
+    {
+      username : "1213non" ,
+      contact : {
+        phone : "123-334-2333" ,
+        email : "xyz@xyz.com"
+      } ,
+      access : {
+        level :5  , 
+        group : ""
+      }
+
+    }
+
+    Embedding data is one way to create relationships in MongoDB. In your example, 
+    you've embedded the contact information within the user document. This approach is 
+    suitable when the embedded data is tightly coupled with the parent document and 
+    when the cardinality of the relationship is one-to-one or one-to-few.
+    In this structure:
+
+    -Each user document contains the contact information embedded within it.
+    -The contact field holds the contact details like phone number and email address.
+    -Other user-related information, such as access level and group, is also included in the same document.
+    -This approach simplifies querying as all relevant information is contained within a single document. However, it's essential to consider the potential growth of the embedded data and the impact on document size. If the embedded data grows too large or if there's a need for more flexibility in querying or updating the embedded data independently, alternative approaches like referencing or de-normalization may be more suitable.
+
+2.references 
+  Using references is another approach to create relationships in MongoDB. In this 
+  method, you store references to related documents rather than embedding them 
+  directly. This approach is suitable when the related data can exist independently, 
+  and the relationship between them is one-to-many or many-to-many.
+  
+  user document : 
+
+    {
+      _id : <ObjectId1>
+      username : "123xyx" 
+    }
+
+    contact document : 
+    {
+      _id : <ObjectId2>,
+      user_id: <ObjectId1>
+    }
+
+    access document : 
+    {
+      _id : <ObjectId3> ,
+      user_id : <ObjectId1 > ,
+      level : 5  ,
+      group : ""
+    }
+
+  In this structure:
+
+    -Each document (user, contact, access) has its own collection.
+    -The user_id field in the contact and access documents stores references to the corresponding user document's _id.
+    -This allows you to query related data by performing a lookup using the stored references.
+    -Using references provides more flexibility in querying and updating related data independently. However, it may require additional queries to retrieve related information, especially in scenarios with deep nesting or complex relationships. Additionally, maintaining referential integrity and managing consistency between related documents is the responsibility of the application logic.
+
+
+
+relationship : 
+1. embedded documents(de-normalized) : 
+  advantages :
+  a. faster query --> single query can fetch me all data.
+  b. easy to create 
+  c. easy to maintain transaction
+  challenges : 
+  a. To much embedding can exceed 16MB limit .
+  b. excess of data loads each time ==>eager loading ==leads to==> 
+            network overhead , storage overhead .
+
+2. referencing(normalized form) 
+  advantages
+  a.smaller document easy to maintain with in 16MB
+  b.lazy loading  ==> loading only that much data which needs 
+  challenges
+  a. Query slower because of multiple queries 
+  b. transactions complicated 
