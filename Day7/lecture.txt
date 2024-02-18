@@ -1,0 +1,304 @@
+mongoDb server ==> multiple databases ==> test ==> multiple documents 
+
+## cls : clear screen 
+
+## show databases : To get all databases   
+admin       40.00 KiB
+config      72.00 KiB
+local       80.00 KiB
+see/hit databases only if it has data
+
+
+short cut to get all databases 
+## show dbs : To get all databases   
+
+to access databases 
+
+## use databases_name : access databases
+ex : 
+use admin 
+switched to db admin
+
+
+To create new database 
+
+## use databases_name : create new database 
+
+it also create database and start using it 
+
+admin> use newdb
+switched to db newdb
+
+above command create database but it not show with , show dbs command  , because of no data present in . until use do not create collection inside database .
+
+database ===> collection 
+
+collection ==operation== >  a. list all collection 
+                            b. create collection 
+                            c. update name of collection 
+                            d. remove collection     
+
+a. list of all  collection 
+## show collections ;
+
+b. create collection 
+## db.createCollection("name_of_collection") ;
+
+db.createCollection("student")
+
+newdb> db.createCollection("student")
+{ ok: 1 }
+newdb> 
+
+    in above command db represent  current database 
+
+newdb> show collections
+student
+newdb>
+
+c.  update name of collection :
+
+    db.collection_name.renameCollection("new_collection_name") ;
+
+## db.student.renameCollection("student_new") ;
+
+newdb> db.student.renameCollection("students_new")
+{ ok: 1 }
+newdb>
+
+
+d. remove collection 
+    delete one OR more documents from collection
+##db.collection_name.remove({})
+## db.student.remove({})
+
+newdb> db.student.remove({})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 0 }
+newdb>
+
+## db.collection_name.drop()
+
+newdb> db.students_new.drop() ;
+true
+newdb>
+
+
+database ==>collection ==> documents (CRUD)
+            a.insert (create)
+            b.quires (read)
+            c.update
+            d.delete
+
+
+a. create/insert document(JSON) : 
+     var user = {
+                name : "peter" ,
+                ip : "127.0.0.1",
+                lasttimelogin: 12180329
+                }
+## db.students.insertOne(user)
+
+db.collection_name.insertOne(data to insert )
+
+
+insert multiple documents 
+## db.collection_name.insertMany([array of documents])
+##db.students.insertMany([{} , {}])
+
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65d1ca3c95602163dbd12ba8'),
+    '1': ObjectId('65d1ca3c95602163dbd12ba9')
+  }
+}
+
+b. read/query  data : 
+
+## db.collection_name.find() ;
+## db.students.find() ;
+
+read document with condition || search with filter 
+## db.collection_name.find({query parameter})
+## db.students.find({name: "peter"}) ;
+
+newdb> db.students.find({name: "peter"})
+[
+  {
+    _id: ObjectId('65d1bdf095602163dbd12ba5'),
+    name: 'peter',
+    ip: '127.0.0.1',
+    lasttimelogin: 12180329
+  }
+]
+
+## query for embedded data/nested data quires: 
+data : 
+   {
+    _id: ObjectId('65d1cdbf95602163dbd12baa'),
+    name: 'john',
+    job: { title: 'programmer', salary: 124000 }
+  }
+
+find person with job title programmer
+
+##db.students.find({"job.title" : "programmer"})
+
+
+newdb> db.students.find({"job.title" : "programmer"})
+[
+  {
+    _id: ObjectId('65d1cdbf95602163dbd12baa'),
+    name: 'john',
+    job: { title: 'programmer', salary: 124000 }
+  }
+]
+newdb>
+
+*** use regex for query data 
+
+##db.collection_name.find({field : pattern})
+
+newdb> db.students.find({name : /p.*/})
+[
+  {
+    _id: ObjectId('65d1bdf095602163dbd12ba5'),
+    name: 'peter',
+    ip: '127.0.0.1',
+    lasttimelogin: 12180329
+  }
+]
+
+## to read limited number of document form collection .
+
+## db.collection_name.find().limit(number_of_document_to_read) ;
+## db.students.find().limit(2) ;
+
+[
+  {
+    _id: ObjectId('65d1bdf095602163dbd12ba5'),
+    name: 'peter',
+    ip: '127.0.0.1',
+    lasttimelogin: 12180329
+  },
+  {
+    _id: ObjectId('65d1bfc495602163dbd12ba6'),
+    name: 'mary jean',
+    ip: '123.23.24.56'
+  }
+]
+To get data in readable format 
+## db.collection_name.find().pretty() ;
+
+new version of mongoDb server does not need formatting it already get formatted by default
+
+
+to skip  document while reading document
+
+## db.collection_name.find().skip(number of document skip)
+
+To sort base on name alphabetically
+
+## db.collection_name.find().sort({field : 1 }) 
+ value in sorting criteria 1 and -1 
+## db.students.find().sort({name : 1}) ; // sort in acceding order
+## db.students.find().sort({name : -1} ) ; // sort in descending order
+
+to find number of documents in collection 
+
+## db.students.find().count() ;
+
+retrieving distinct value : 
+
+### db.collection_name.distinct("field")
+### db.students.distinct("name" ) ;
+
+newdb> db.students.distinct("name")
+[ 'john', 'mary jean', 'omkesh', 'peter', 'raju', 'vivek borse' ]
+newdb>
+
+
+for nested field we can also  use this command 
+### db.collection_name.distinct("comment.message") ;
+
+newdb> db.students.distinct("job.title")
+[ 'programmer' ]
+newdb>
+
+
+
+#less  than 
+db.collection_name.find({field : {$lt : 200}}) ;
+
+#less than or equal 
+db.collection_name.find({field : {$lte : 200}})
+
+#less than or equal
+db.collection_name.find({field : {$gt : 200}})
+
+#greater than or equal 
+db.collection_name.find({field : {$gte : 200}})
+db.employees.find({salary : {$gte : 20002} }) 
+
+#not equal 
+db.collection_name.find({field : {$ne : "String also accepted in some operation"}}) ;
+
+
+#in : $in operator is used to query for documents where a specified field's value matches any value in the provided array. Here's how the query works:
+db.collection_name.find({field :{$in : [1992 ,2010, 2019 ,2022]}})
+
+
+#all :
+the $all operator is used to query for documents where a specified field contains all the values in the provided array. Here's how the query works:
+db.collection_name.find({field : {$all : [1999 , 2010]}})
+
+
+
+
+c.update quires 
+
+update document 
+The MongoDB update operation allows you to modify documents in a collection. Here's how to use the `update()` method with the `$set` operator and the `upsert` option:
+
+
+### db.collection_name.update(
+    { field: 'value' },              // Query criteria to find documents to update
+    { $set: { otherField: 'new value' } },  // Update operation using $set to set a new field value
+    { upsert: true }                // Optional: If set to true, creates a new document if no match is found
+)
+
+
+This operation updates documents in the `collection_name` collection where the `field` matches the specified value `'value'`. If a matching document is found, it sets the value of the `otherField` to `'new value'`. If no document matches the query criteria and the `upsert` option is set to `true`, MongoDB will create a new document with the specified fields and values.
+
+
+increment value 
+The MongoDB `updateOne()` method is used to update a single document that matches the specified filter. Here's how to use it with the `$inc` operator to increment the value of a field:
+
+db.collection_name.updateOne(
+    { field: 'value' },         // Filter criteria to find the document to update
+    { $inc: { number: 6 } }     // Update operation using $inc to increment the value of 'number' by 6
+);
+
+
+This operation will find the first document in the `collection_name` collection where the `field` matches the value `'value'`, and then it will increment the value of the `number` field by 6 in that document.
+
+**push value to array
+
+The MongoDB `$push` operator is used to append a specified value to an array field within a document. Here's how you can use it to push the value `6` into the `number` array for the document with `_id` equal to `1`:
+
+```bash
+db.collection_name.updateOne(
+    { _id: 1 },                    // Filter criteria to find the document with _id equal to 1
+    { $push: { number: 6 } }      // Update operation using $push to append 6 to the 'number' array
+);
+```
+
+This operation will locate the document in the `collection_name` collection with `_id` equal to `1`, and then it will push the value `6` into the `number` array within that document.
+
+d. delete quires : 
+
+## db.collection_name.deleteOne({name : "peter"})
+
+## db.collection_name.deleteMany({status : {$in : ["dormant" , "inactive"]}})
