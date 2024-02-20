@@ -1,0 +1,40 @@
+
+MongoDB Server Overview
+
+Databases:
+- To view all databases: `show databases` or `show dbs`.
+- To access a specific database: `use database_name`.
+- Creating a new database: `use new_database_name`.
+- Note: Databases without data won't show up with `show dbs`.
+
+Collections:
+- List all collections: `show collections`.
+- Create a collection: `db.createCollection("collection_name")`.
+- Rename a collection: `db.collection.renameCollection("new_collection_name")`.
+- Remove a collection: `db.collection.drop()`.
+
+CRUD Operations on Documents:
+
+Create/Insert Documents:
+- Insert a single document: `db.collection.insertOne(document)`.
+- Insert multiple documents: `db.collection.insertMany([array_of_documents])`.
+
+Read/Query Documents:
+- Query all documents: `db.collection.find()`.
+- Query with conditions: `db.collection.find({query_parameter})`.
+- Query for embedded/nested data: `db.collection.find({"embedded_field.sub_field": "value"})`.
+- Limit number of documents: `db.collection.find().limit(number_of_documents)`.
+- Sort documents: `db.collection.find().sort({field: 1})` for ascending, `-1` for descending.
+- Count documents: `db.collection.find().count()`.
+- Retrieve distinct values: `db.collection.distinct("field")`.
+- Use comparison operators: `$lt`, `$lte`, `$gt`, `$gte`, `$ne`.
+- Use `$in` and `$all` for specific values.
+
+Update Documents:
+- Update with `$set` operator: `db.collection.update({criteria}, {$set: {new_field: value}})`.
+- Increment value: `db.collection.updateOne({criteria}, {$inc: {field_to_increment: value}})`.
+- Push value to array: `db.collection.updateOne({criteria}, {$push: {array_field: value}})`.
+
+Delete Documents:
+- Delete a single document: `db.collection.deleteOne({criteria})`.
+- Delete multiple documents: `db.collection.deleteMany({criteria})`.

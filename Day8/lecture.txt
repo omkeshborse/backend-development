@@ -1,0 +1,33 @@
+ODM(mongoose)
+
+app(javascript) <== communicate ===> database(mongoDb )
+
+ex :
+
+    boy(hindi)  <===communicate(translator) ===>   girl(japanese)
+
+
+    app(javascript) <== ODM(object data modelling) ===> database(mongoDb )
+    app(javascript) <== ORM(object Relational modelling) ===> database(mySQL )
+
+#JavaScript Application (app): This is where your application logic resides, 
+responsible for user interaction, data processing, and business rules. It uses MongoDB 
+drivers and libraries like Mongoose to perform database operations.
+
+
+#MongoDB: This is your NoSQL document database, storing data in flexible JSON-like 
+documents within collections. Mongoose provides an object-oriented interface to 
+interact with it.
+
+#Mongoose (ODM): This Object Data Modeling (ODM) library bridges the gap between 
+JavaScript objects and MongoDB documents. It allows you to define data models 
+(schemas) representing your application's entities and relationships, map them to 
+MongoDB collections, and perform CRUD operations (Create, Read, Update, Delete) in a 
+more intuitive and structured way.
+
+mongoose use to make models in javascript backend application 
+
+to use 
+
+1. connect app with database 
+2. make schemas 
