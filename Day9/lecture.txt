@@ -1,0 +1,317 @@
+Rest api 
+
+Api : Application programming interface
+
+webapp:
+
+                        ---------request-----> 
+🖥️(computer) UI  <==https://www.linkedin.com/ ==>  🗄️(server)->backend code deployed .
+                        <--------response----
+
+                        request-response cycle 
+                        this is handle with help of Api 
+
+
+hotel 
+
+                              --food-order->   
+Dinning area(ui/frontend)     <===waiter===>  restaurants area(backend) 
+                              <--food severed-
+
+                            this waiter act as api 
+                            in hotel 
+
+Api is use to communicate between two Application .
+
+    ---req --->
+app1 <==api==> app2 
+     <---res---
+
+     exchange of data 
+
+
+some api protocol  
+
+1 SOAP : simple object access protocol
+                    --req--> 
+    app1(python) <=== api ===>app2(java)
+                   <--res--
+
+    xml is language agnostic
+    app python--> data --> XML -->ByteArray (serialize)--> transfer over n/w -->xml(de-serialize) -->app2(java object) 
+
+Yes, you're correct. XML (eXtensible Markup Language) is indeed language agnostic, meaning it can be used to represent data in a format that can be understood by different programming languages and systems. In the scenario you described:
+
+1. **Python Application**:
+   - The Python application generates data that needs to be transmitted to the Java application.
+
+2. **XML Serialization**:
+   - The Python application converts the data into an XML format. This involves structuring the data according to the rules of XML.
+
+3. **Byte Array Serialization**:
+   - The XML data is then serialized into a byte array. Serialization is the process of converting data into a format that can be easily transmitted over a network.
+
+4. **Network Transfer**:
+   - The byte array, representing the XML data, is transferred over the network from the Python application to the Java application.
+
+5. **Byte Array Deserialization**:
+   - Upon receiving the byte array, the Java application deserializes it, converting it back into XML format.
+
+6. **XML Deserialization**:
+   - The Java application then deserializes the XML data, converting it into Java objects or structures that it can work with.
+
+7. **Java Application**:
+   - The Java application now has access to the data in its native format and can process it accordingly.
+
+This approach allows data to be exchanged between the Python and Java applications in a language-agnostic manner, with XML serving as the common format for representing the data during transmission. The use of byte array serialization ensures that the data can be efficiently transmitted over the network.
+
+*****SOAP ****
+SOAP, or Simple Object Access Protocol, is a protocol used for exchanging structured information in the implementation of web services. Here's how the interaction you described works:
+
+1. **SOAP (Simple Object Access Protocol)**: This is a protocol for exchanging structured information in the implementation of web services. It relies on XML as its message format and usually operates over HTTP.
+
+2. **Request Flow**:
+   - The Python application (app1) needs to access some functionality provided by the Java application (app2) via an API.
+   - App1 sends a SOAP request to the API endpoint exposed by app2.
+   - The SOAP request is typically an XML document structured according to the SOAP specification.
+   
+3. **API Handling**:
+   - App2's API, which is built in Java, receives the SOAP request.
+   - It processes the request, executes the necessary functionality, and generates a response.
+   
+4. **Response Flow**:
+   - App2 sends a SOAP response back to app1.
+   - Similar to the request, the response is an XML document adhering to the SOAP format.
+   
+5. **App1 Handling**:
+   - App1 receives the SOAP response and processes it according to its requirements.
+   
+6. **Communication**:
+   - The communication between the two applications is facilitated through the SOAP protocol over HTTP. Both applications understand the SOAP message format, allowing them to communicate effectively despite being developed in different languages (Python and Java, in this case).
+
+In summary, SOAP enables interoperability between different systems by providing a standard protocol for exchanging structured information, making it suitable for integrating applications developed in different programming languages.
+
+
+
+Disadvantage of xml : 
+1 slow and heavy  
+
+<bookstore>
+  <book category="fiction">
+    <title lang="en">Harry Potter</title>
+    <author>J.K. Rowling</author>
+    <year>2005</year>
+    <price>29.99</price>
+  </book>
+  <book category="nonfiction">
+    <title lang="en">The Elements of Style</title>
+    <author>William  Jr.</author>
+    <author>E.B. White</author>
+    <year>1999</year>
+    <price>9.99</price>
+  </book>
+</bookstore>
+
+
+from above XML code we able to look that 10% of data and 90% of meta-data
+
+heavy -->serialization is time consuming --> slow n/w transfer 
+
+SOAP --slow -->XML --so replace XML but SOAP does not change XML .
+SOAP is not evolved 
+
+change is only constant 
+
+challenges of SOAP : 
+1. heavy
+2.not flexible support only XML 
+3.slow 
+
+2 REST api : 
+advantage : 
+1 flexibility support all format : text ,xml ,image ,Json
+2 json : light weight and fast 
+
+    json -->javascript object notation 
+
+    json -->file format --> language agnostic
+
+    data stored in key value pair 
+    {
+        "name" :"peter" ,
+        "age" : 19 ,
+        "address" : "pune maharashtra"
+    }
+    json contains only data 
+
+
+REST --> Representational State Transfer -->data in core 
+
+
+🖥️(frontend)   ⇄   🗄️(backend )  ---> 🛢️(mySql/mongoDb) -->in hard-disk stored in (0 1) 
+
+to display graph --> request to server --> data from database --> from hard disk 
+
+hard disk data stored in 0 1 format and converted to collection or table depends on DBMS , 
+then data form database transfer to backend server in javascript object  and from backend transferred to
+frontend  in Json format then display in the form of graph 
+
+
+frontend(graph)<-- backend(javascript objects) <-- mongoDb/mySql(collection / table) <-- hard disk (0 1from) 
+
+this change of state form backend to frontend is Rest(Representational state transfer) meaning .
+
+
+Data operations :  create ,read , update , delete (CRUD)
+
+movie application 
+1.create a new movie
+2.read movie 
+3. update  movie 
+4.delete 
+
+which is also endpoint of movie application
+
+
+Uri/address of website  : Unique  resource identifier
+
+
+ip : 127.0.0.1 
+port : 8080
+
+
+base url : 127.0.0.1:8080 
+
+application name : mba (movie booking application)
+absolute uri : 
+127.0.0.1:8080/mba/movies/spider-man
+
+
+general  form of uri 
+<ip-address >:port/application_name/version_number/resource_name(PLURAL)/resource
+
+
+vehicle management system
+
+vehicle id = > 1322
+ip : 111.21.31.42 
+port : 8181
+
+uri : 111.21.31.42:8181/vms/v2/vehicles/1322
+
+
+Rest -->CRUD --> address -->action (CRUD)
+http use to communicate between two apps
+
+http verb denotes action--> 
+      create -->post method 
+      read -->get method 
+      update -->put method 
+      delete -->delete method 
+
+http verb(action) + uri(resource) ==> REST full uri 
+
+ex : 
+movie book application(mba)
+port:8080
+machine : 127.0.0.1 
+resource : movies
+
+uri 127.0.0.1 :8080/mba/v1/movies
+action :  
+create movie (REST full uri for creating movie) : 
+
+post 127.0.0.1 :8080/mba/v1/movies 
+with request body 
+
+search movie (REST full uri for fetching movie):
+movie id :11223
+
+get 127.0.0.1:8080/mba/v1/movies/11223
+
+
+update movie (Rest full uri for updating movie) : 
+movie id 232
+
+put 127.0.0.1/mba/v1/movies/232
+
+req body of movie : { // updated body  }
+
+
+delete movie (est full uri for delete movie) :
+movie id :123
+delete 127.0.0.1/mba.v1/movies/123
+
+
+Rest uri :
+
+base uri : 127.0.0.1:8080
+
+###path param 
+
+get movie : 
+
+127.0.0.1:8080/mba/v1/movies/{id} 
+
+this id base on which movie get fetch is called as path-param 
+
+
+fetch movie with id 1234 : 127.0.0.1:8080/mba/v1/movies/1234
+fetch movie with id 123445 : 127.0.0.1:8080/mba/v1/movies/123445
+
+###Query param :  use for filtering 
+
+get all movie in hindi and Actors johnny depp
+GET 127.0.0.1:8080/mba/v1/movies?language="hindi"&actor="johnny_depp"
+
+Query parameter : 
+language="hindi"&actor="johnny_depp"
+
+
+##** interview **##
+
+restful uri -->http verb [GET , POST , PUT,DELETE]
+
+   idempotent non-idempotent 
+
+Idempotent: An operation is idempotent if performing it multiple times has the same 
+effect as performing it once. In terms of HTTP methods, GET, PUT, and DELETE are 
+considered idempotent.
+GET : idempotent 127.0.0.1:8080/mba/v1/movies/12344
+   get request call 1time or 1 million time  it gives same result so it follows under idempotent category
+
+PUT : idempotent 127.0.0.1:8080/mba/v1/movies/1232 + req body 
+   put request call 1 time or 1 million times it updated result is same always 
+
+DELETE :idempotent  127.0.0.1:8080/mba/v1/movies/1323
+delete request call 1st time it delete movie then after many times we requested on it it does not any effect
+
+Non-idempotent: Operations where performing them multiple times might have different 
+effects or additional side effects. POST requests are typically non-idempotent because 
+each request usually creates a new resource or has different side effects.
+
+non-idempotent : POST 127.0.0.1:8080/mba/v1/movies/
+   create new movies resource comes out on every call that why it is non-idempotent
+   so post request is not safe 
+
+
+
+Rest web service 
+
+
+resource path + http method 
+
+headers (extra data)
+
+body in post and put method
+
+
+response code /status code  
+
+
+200 success 
+201 created
+301 Moved permanently(redirected status response code )
+401 unauthorized
+404 not found
+500 server error  
